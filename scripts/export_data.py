@@ -3,7 +3,7 @@ Export Boston Parcel Data from Supabase to CSV.
 
 This script:
 1. Loads environment variables from .env file
-2. Connects to Supabase using service role key
+2. Connects to Supabase using secret key
 3. Fetches ALL rows from 'properties' table with pagination
 4. Exports to data/raw/boston_properties.csv
 """
@@ -22,12 +22,12 @@ load_dotenv()
 def get_supabase_client() -> Client:
     """Create and return Supabase client."""
     supabase_url = os.getenv("SUPABASE_URL")
-    supabase_key = os.getenv("SUPABASE_SERVICE_ROLE_KEY")
+    supabase_key = os.getenv("SUPABASE_SECRET_KEY")
     
     if not supabase_url:
         raise ValueError("SUPABASE_URL not found in environment variables")
     if not supabase_key:
-        raise ValueError("SUPABASE_SERVICE_ROLE_KEY not found in environment variables")
+        raise ValueError("SUPABASE_SECRET_KEY not found in environment variables")
     
     return create_client(supabase_url, supabase_key)
 

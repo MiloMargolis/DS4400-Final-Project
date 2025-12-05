@@ -3,7 +3,7 @@ Verify environment variables and Supabase connection.
 
 This script:
 1. Loads the .env file
-2. Checks if SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY exist
+2. Checks if SUPABASE_URL and SUPABASE_SECRET_KEY exist
 3. Tests the Supabase connection
 """
 
@@ -20,13 +20,13 @@ def verify_env_variables():
     print("-" * 50)
     
     supabase_url = os.getenv("SUPABASE_URL")
-    supabase_key = os.getenv("SUPABASE_SERVICE_ROLE_KEY")
+    supabase_key = os.getenv("SUPABASE_SECRET_KEY")
     
     url_set = supabase_url is not None and supabase_url != ""
     key_set = supabase_key is not None and supabase_key != ""
     
     print(f"SUPABASE_URL: {'✓ Set' if url_set else '✗ Not set'}")
-    print(f"SUPABASE_SERVICE_ROLE_KEY: {'✓ Set' if key_set else '✗ Not set'}")
+    print(f"SUPABASE_SECRET_KEY: {'✓ Set' if key_set else '✗ Not set'}")
     print("-" * 50)
     
     return url_set and key_set
@@ -35,7 +35,7 @@ def test_connection():
     """Test Supabase connection."""
     try:
         supabase_url = os.getenv("SUPABASE_URL")
-        supabase_key = os.getenv("SUPABASE_SERVICE_ROLE_KEY")
+        supabase_key = os.getenv("SUPABASE_SECRET_KEY")
         
         if not supabase_url or not supabase_key:
             print("\nCannot test connection: Missing environment variables")
