@@ -31,7 +31,8 @@ ENV/
 .ipynb_checkpoints
 *.ipynb_checkpoints/
 
-data/
+data/**/*.csv
+data/raw/*.csv
 
 .vscode/
 .idea/
