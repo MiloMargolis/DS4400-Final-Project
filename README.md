@@ -1,6 +1,6 @@
 # Boston Properties Redevelopment Potential Prediction
 
-**Authors:** Milo Margolis
+**Authors:** Milo Margolis, Dhruv Rokkam
 
 **Course:** DS4400 Final Project
 
